@@ -15,31 +15,30 @@ router.get('/signup', (req, res) => {
 });
 router.post('/signup', async (req, res) => {
   const { username, password } = req.body;
+  const startTime = Date.now();
 
   try {
-    // Check if the username already exists
     const existingUser = await User.findOne({ username });
     if (existingUser) {
       return res.status(400).send('Username already exists');
     }
 
-    // Hash the password
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    // Create a new user
-    const newUser = new User({
-      username,
-      password: hashedPassword,
-    });
+    const hashedPassword = await bcrypt.hash(password, 8); // Reduced bcrypt rounds
+    const newUser = new User({ username, password: hashedPassword });
 
     await newUser.save();
+
+    const endTime = Date.now();
+    console.log('Signup process completed in', endTime - startTime, 'ms');
+
     req.session.username = newUser.username;
-    res.redirect('/users/dashboard'); 
+    res.redirect('/users/dashboard');
   } catch (error) {
-    console.error(error); // Log the error to the console
+    console.error('Error during signup:', error);
     res.status(500).send('Internal Server Error');
   }
 });
+
 // Display login form
 router.get('/login', (req, res) => {
   res.render('login');
