@@ -17,14 +17,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(
   session({
-    secret: 'your-secret-key', // Replace with your own secret key
+    secret: 'your-secret-key', 
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-      mongoUrl: 'mongodb://localhost:27017/your-database-name', // Replace with your MongoDB connection string
-      collectionName: 'sessions', // Optional: the name of the collection for sessions
+      mongoUrl: mongoURI, 
+      collectionName: 'sessions', 
     }),
-    cookie: { maxAge: 1000 * 60 * 60 * 24 }, // Session expiry (1 day in this example)
+    cookie: { maxAge: 1000 * 60 * 60 * 24 }, 
   })
 );
 mongoose.set('debug', true);

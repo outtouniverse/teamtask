@@ -155,6 +155,7 @@ router.post('/uploadTask', upload.single('image'), async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
 router.get('/teamtask', async (req, res) => {
   try {
     const allTasks = await Task.find().populate('uploadedBy', 'username').sort({ timestamp: -1 });
