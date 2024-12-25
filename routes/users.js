@@ -4,14 +4,11 @@ const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const User = require('../models/User');
 const Task = require('../models/tasks');
+const MongoStore = require('connect-mongo');
 const multer = require('multer');
 const path = require('path');
 const router = express.Router();
-mongoose.connect('mongodb://localhost:27017/todo', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-});
+mongoose.connect('mongodb://localhost:27017/todo');
 // Display signup form
 router.get('/signup', (req, res) => {
   res.render('signup'); // Assuming you have a 'signup' view/template
