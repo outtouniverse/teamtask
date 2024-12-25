@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/stylesheets\style.css"
+    />
+
+
+    <div class="login-container">
+      <h2>Login</h2>
+      <% if (typeof error !== 'undefined' && error) { %>
+        <p style="color: red;background-color: bisque;"><%= error %></p>
+    <% } %>
+     
+      <form action="/users/login" method="post">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      <p>Don't have an account? <a href="/users/signup">Sign up</a></p>
+    </div>
+
+    <!-- join.html -->
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

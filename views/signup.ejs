@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/stylesheets\style.css"
+    />
+
+    <div class="video-container">
+      <video autoplay muted loop id="video-background">
+        <source src="team_management.mp4" />
+      </video>
+    </div>
+
+    <div class="login-container">
+      <h2>Signup</h2>
+      <form action="/users/signup" method="post">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <button type="submit">signup</button>
+      </form>
+      <p>Already have an account? <a href="/users/login">Login</a></p>
+    </div>
+
+    <!-- join.html -->
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="/stylesheets/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      .upload-form {
+          display: none;
+          position: absolute;
+          top: 50px;
+          right: 10px;
+          z-index: 1000; /* Set a high z-index to appear on top */
+          padding: 20px;
+          border-radius: 10px;
+          background-color: #00000093; /* Adjust the alpha channel for the pop effect */
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          color: #000; /* Set text color to black */
+      }
+  
+      .upload-box {
+          margin-top: 15px;
+      }
+  
+      .form-group {
+          margin-bottom: 15px;
+      }
+  
+      .form-group label {
+          display: block;
+          margin-bottom: 5px;
+          color: #140202; /* Adjust the label color */
+      }
+  
+      .form-group input,
+      .form-group textarea {
+          width: 100%;
+          padding: 8px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-sizing: border-box;
+          margin-bottom: 10px;
+      }
+  
+      .add-task-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          background-color: #3498db; /* You can change the color */
+          color: #fff;
+          border-radius: 50%;
+          cursor: pointer;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+      }
+  
+      #uploadButton {
+          background-color: #1f98e8;
+          color: #1b0c0cec;
+          padding: 10px 15px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+      }
+  </style>
+  
+  
+</head>
+<body>
+    <div class="container">
+        <div class="container">
+            <div class="left-container">
+                <h1>Welcome,<br> <%= username %>!</h1>
+                <p class="user-info"></p>
+                
+                <!-- Use "fa-home" instead of "fa-duotone fa-house" -->
+                <div class="navigation-option">
+                    <i class="fas fa-home"></i><a href="/">HOME</a>
+                </div>
+                <div class="navigation-option">
+                  <i class="fa-solid fa-house-user"></i><a href="/users/dashboard">Dashboard</a>
+                </div>
+
+                <div class="navigation-option">
+                    <i class="fa-solid fa-people-group"></i><a href="/users/teamview">Teamview</a>
+                </div>
+                <div class="navigation-option">
+                    <i class="fa-solid fa-list-check"></i><a href="/users/teamtask">Team tasks</a>
+                </div>
+                
+                <div class="navigation-option">
+                    <i class="fa-solid fa-list"></i><a href="#">Tasks to be done</a>
+                </div>
+                <div class="navigation-option">
+                    <i class="fa-solid fa-right-from-bracket"></i><a href="/users/logout">Logout</a>
+                </div>
+            </div>
+            <div class="right-container">
+                <div class="add-task-btn" onclick="toggleUploadForm()">
+                    <i class="fas fa-plus"></i>
+                </div>
+                <h1>MY TASKS!</h1><br>
+                <div class="task-container-scrollable">
+                  <% if (userTasks && userTasks.length > 0) { %>
+                    <% userTasks.forEach(task => { %>
+                      <div class="task-container">
+                        <div class="task-info">
+                          <div class="task-image">
+                            <img src="/uploads/<%= task.image %>" alt="Task Image" class="round-image">
+                          </div>
+                          <div class="task-details">
+                            <div class="title-icon">
+                              <i class="fa-solid fa-calendar-check"></i>
+                              <h2><%= task.title %></h2>
+                            </div>
+                            <p class="timestamp">Uploaded on: <%= task.timestamp.toLocaleString() %></p>
+                          </div>
+                        </div>
+                        <p class="description"><%= task.description %></p>
+                      </div>
+                    <% }); %>
+                  <% } else { %>
+                    <p>No tasks available.</p>
+                  <% } %>
+                </div>
+                
+
+                <div class="upload-form" id="uploadFormContainer">
+                    <h1>Upload YOUR Task</h1>
+                    <div class="upload-box">
+                        <form action="/users/uploadTask" method="post" enctype="multipart/form-data" id="uploadForm">
+                            <div class="form-group">
+                                <label for="imageInput">Upload output Image:</label>
+                                <input type="file" name="image" id="imageInput" accept="image/*" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="titleInput">Title:</label>
+                                <input type="text" name="title" id="titleInput" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="descriptionInput">Description:</label>
+                                <textarea name="description" id="descriptionInput" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" id="uploadButton">Upload</button>
+                            </div>
+                            <div>
+                                <% if (message) { %>
+                                <p><%= message %></p>
+                                <% } %>
+                            </div>
+                        </form>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/javascripts/dash.js"></script>
+</body>
+</html>
