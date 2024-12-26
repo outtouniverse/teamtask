@@ -173,14 +173,12 @@ router.post('/uploadTask', upload.single('image'), async (req, res) => {
       description,
     });
 
-    // Save the task to the database
     await newTask.save();
 
-    // Associate the task with the current user
-    currentUser.uploadedTasks.push(newTask);
+   currentUser.uploadedTasks.push(newTask);
     await currentUser.save();
 
-    // Set a success message in the session
+   
     req.session.message = 'Task uploaded successfully';
 
     // Redirect to the dashboard
