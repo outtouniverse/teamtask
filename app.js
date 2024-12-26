@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo');
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
-
+const cloudinary=require('cloudinary');
 const app = express();
 
 // MongoDB connection
@@ -28,7 +28,14 @@ app.use(
   })
 );
 mongoose.set('debug', true);
-app.use('/uploads', express.static(path.join(__dirname, '/routes/uploads')));
+//app.use('/uploads', express.static(path.join(__dirname, '/routes/uploads')));
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'uploads', // Cloudinary folder name where images will be stored
+    allowed_formats: ['jpg', 'jpeg', 'png'], // Allowed file types
+  },
+});
 // Routes
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');

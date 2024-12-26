@@ -5,9 +5,13 @@ const mongoose = require('mongoose');
 const User = require('../models/user');
 const Task = require('../models/tasks');
 const MongoStore = require('connect-mongo');
-const multer = require('multer');
+
 const path = require('path');
 const router = express.Router();
+
+const multer = require('multer');
+const upload = multer({ storage: storage }); 
+
 
 async function connectDB() {
   try {
@@ -25,7 +29,7 @@ connectDB();
 
 // Display signup form
 router.get('/signup', (req, res) => {
-  res.render('signup'); // Assuming you have a 'signup' view/template
+  res.render('signup'); 
 });
 router.post('/signup', async (req, res) => {
   const { username, password } = req.body;
@@ -126,16 +130,24 @@ router.get('/teamview', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    const uploadPath = path.join(__dirname, 'uploads/');
-    cb(null, uploadPath);
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
+//const storage = multer.diskStorage({
+ // destination: function (req, file, cb) {
+   // const uploadPath = path.join(__dirname, 'uploads/');
+ //   cb(null, uploadPath);
+ // },
+ // filename: function (req, file, cb) {
+ //   cb(null, file.originalname);
+ // },
+//});
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'uploads', // The folder in your Cloudinary account where files will be stored
+    allowed_formats: ['jpg', 'png', 'jpeg'], // Allowed file formats
+    public_id: (req, file) => file.originalname.split('.')[0], // File name in Cloudinary
   },
 });
-const upload = multer({ storage: storage });
+
 router.post('/uploadTask', upload.single('image'), async (req, res) => {
   try {
     const { title, description } = req.body;
@@ -145,9 +157,9 @@ router.post('/uploadTask', upload.single('image'), async (req, res) => {
       return res.status(401).send('Unauthorized');
     }
 
-    // Create a new task
+   
     const newTask = new Task({
-      image: req.file.filename,
+      image: req.file.path,
       title,
       description,
     });
@@ -169,6 +181,7 @@ router.post('/uploadTask', upload.single('image'), async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
 
 router.get('/teamtask', async (req, res) => {
   try {
