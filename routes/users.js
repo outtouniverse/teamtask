@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const User = require('../models/user');
 const Task = require('../models/tasks');
 const MongoStore = require('connect-mongo');
-
+const cloudinary = require('cloudinary').v2;
 const path = require('path');
 const router = express.Router();
 

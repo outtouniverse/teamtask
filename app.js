@@ -5,7 +5,7 @@ const MongoStore = require('connect-mongo');
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const app = express();
-
+const cloudinary = require('cloudinary').v2;
 const multer = require('multer');
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
