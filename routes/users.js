@@ -8,7 +8,20 @@ const MongoStore = require('connect-mongo');
 const multer = require('multer');
 const path = require('path');
 const router = express.Router();
-mongoose.connect('mongodb+srv://ak:pass@cluster0.lbxdz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+
+try {
+  await mongoose.connect('mongodb+srv://ak:pass@cluster0.lbxdz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    connectTimeoutMS: 30000, // 30 seconds timeout
+    socketTimeoutMS: 30000, // 30 seconds timeout
+  });
+  console.log("Connected to MongoDB");
+} catch (error) {
+  console.error("Failed to connect to MongoDB", error);
+  process.exit(1); // Exit process if the database connection fails
+}
+
 // Display signup form
 router.get('/signup', (req, res) => {
   res.render('signup'); // Assuming you have a 'signup' view/template
