@@ -8,7 +8,7 @@ const bcrypt = require('bcryptjs');
 const app = express();
 
 // MongoDB connection
-const mongoURI = 'mongodb://localhost:27017/todo';
+const mongoURI = 'mongodb+srv://ak:pass@cluster0.lbxdz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 mongoose.connect(mongoURI);
 app.set('views', path.join(__dirname, 'views')); 
 app.set('view engine', 'ejs');

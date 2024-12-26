@@ -8,7 +8,7 @@ const MongoStore = require('connect-mongo');
 const multer = require('multer');
 const path = require('path');
 const router = express.Router();
-mongoose.connect('mongodb://localhost:27017/todo');
+mongoose.connect('mongodb+srv://ak:pass@cluster0.lbxdz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 // Display signup form
 router.get('/signup', (req, res) => {
   res.render('signup'); // Assuming you have a 'signup' view/template
@@ -50,7 +50,7 @@ router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({ username });
 
-    // If the user doesn't exist or the password is incorrect, show an error
+    
     if (!user || !(await bcrypt.compare(password, user.password))) {
       return res.render('login', { error: 'Invalid username or password' });
     }
