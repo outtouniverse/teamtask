@@ -4,8 +4,11 @@ const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo');
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
-const cloudinary=require('cloudinary');
 const app = express();
+
+const multer = require('multer');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary = require('./cloudinary');
 
 // MongoDB connection
 const mongoURI = 'mongodb+srv://ak:pass@cluster0.lbxdz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
