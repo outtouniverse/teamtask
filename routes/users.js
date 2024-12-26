@@ -15,6 +15,13 @@ const cloudinary = require('cloudinary');
 
 
 
+cloudinary.config({
+  cloud_name: 'diqiftvua',      
+  api_key: '161139739143645',           
+  api_secret: 'cKMBlVREkN2uws65X8K0x85aino',     
+});
+
+
 async function connectDB() {
   try {
     await mongoose.connect(

@@ -10,6 +10,14 @@ const multer = require('multer');
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const cloudinary = require('cloudinary');
 
+
+cloudinary.config({
+  cloud_name: 'diqiftvua',      
+  api_key: '161139739143645',           
+  api_secret: 'cKMBlVREkN2uws65X8K0x85aino',     
+});
+
+
 // MongoDB connection
 const mongoURI = 'mongodb+srv://ak:pass@cluster0.lbxdz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 mongoose.connect(mongoURI);
