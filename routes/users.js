@@ -12,7 +12,7 @@ const router = express.Router();
 const multer = require('multer');
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const cloudinary = require('cloudinary');
-const upload = multer({ storage: storage }); 
+
 
 
 async function connectDB() {
@@ -149,7 +149,7 @@ const storage = new CloudinaryStorage({
     public_id: (req, file) => file.originalname.split('.')[0], // File name in Cloudinary
   },
 });
-
+const upload = multer({ storage: storage }); 
 router.post('/uploadTask', upload.single('image'), async (req, res) => {
   try {
     const { title, description } = req.body;
