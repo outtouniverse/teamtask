@@ -9,18 +9,19 @@ const multer = require('multer');
 const path = require('path');
 const router = express.Router();
 
-try {
-  await mongoose.connect('mongodb+srv://ak:pass@cluster0.lbxdz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    connectTimeoutMS: 30000, // 30 seconds timeout
-    socketTimeoutMS: 30000, // 30 seconds timeout
-  });
-  console.log("Connected to MongoDB");
-} catch (error) {
-  console.error("Failed to connect to MongoDB", error);
-  process.exit(1); // Exit process if the database connection fails
+async function connectDB() {
+  try {
+    await mongoose.connect(
+      'mongodb+srv://ak:pass@cluster0.lbxdz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+    );
+    console.log('Connected to MongoDB');
+  } catch (error) {
+    console.error('Database connection failed:', error);
+    process.exit(1);
+  }
 }
+
+connectDB();
 
 // Display signup form
 router.get('/signup', (req, res) => {
