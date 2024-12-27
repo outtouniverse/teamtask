@@ -1,24 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Team Task Management</title>
-  <link rel="stylesheet" href="/stylesheets/istyle.css">
-</head>
-<body>
-  <div class="glass-container">
-    <div class="content">
-      <div class="left-content">
-        <h1>Welcome to Team Task Management</h1>
-        <p>Efficiently manage tasks, collaborate with your team, and achieve success together. Join us in the journey of seamless teamwork and productivity.</p>
-        <a href="/users/login" class="btn" id="loginBtn">Login</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Task Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-black text-gray-200">
+    <!-- Navigation Bar -->
+    <header class="bg-gray-900 border-b border-gray-700">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="text-2xl font-bold text-blue-400">TeamTask</a>
+        <nav class="space-x-6">
+          <a href="#features" class="text-gray-300 hover:text-blue-400"
+            >Features</a
+          >
+          <a href="#pricing" class="text-gray-300 hover:text-blue-400"
+            >Pricing</a
+          >
+          <a href="#about" class="text-gray-300 hover:text-blue-400">About</a>
+          <a href="#contact" class="text-gray-300 hover:text-blue-400"
+            >Contact</a
+          >
+        </nav>
+        <a
+          href="/users/login"
+          class="bg-blue-500 text-white py-2 px-4 border border-blue-400 hover:bg-blue-600"
+          >Login</a
+        >
       </div>
-      <div class="right-content">
-        <img src="https://miro.medium.com/v2/resize:fit:1400/0*AaM3Ub5ELRyE6MRZ" alt="Large Image">
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-black border-b border-gray-700">
+      <div
+        class="container mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+      >
+        <!-- Text Content -->
+        <div class="text-center md:text-left">
+          <h1 class="text-5xl font-extrabold leading-tight mb-6 text-white">
+            Empower Your Team with <span class="text-blue-400">TeamTask</span>
+          </h1>
+          <p class="text-lg text-gray-400 mb-8">
+            Modern, streamlined task management to boost productivity and foster
+            seamless collaboration.
+          </p>
+          <a
+            href="#features"
+            class="bg-blue-500 text-white py-3 px-6 border border-blue-400 hover:bg-blue-600 transition duration-300 text-lg font-medium my-20"
+          >
+            Get Started
+          </a>
+        </div>
+
+        <!-- Image Content -->
+        <div class="flex justify-center md:justify-end">
+          <div class="w-full max-w-md bg-gray-800 border border-gray-700 p-4">
+            <img
+              src="https://via.placeholder.com/500x300"
+              alt="Team Collaboration"
+              class="w-full h-auto shadow-lg transform transition duration-500 hover:scale-105"
+            />
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <script src="/javascripts/script.js"></script>
-</body>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-gray-900 border-b border-gray-700">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12">Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="p-6 bg-black border border-gray-700 text-center">
+            <i class="fas fa-users text-blue-400 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Team Collaboration</h3>
+            <p class="text-gray-400">
+              Work seamlessly with your team to manage tasks effectively.
+            </p>
+          </div>
+          <div class="p-6 bg-black border border-gray-700 text-center">
+            <i class="fas fa-tasks text-blue-400 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Task Management</h3>
+            <p class="text-gray-400">
+              Create, assign, and track tasks with ease.
+            </p>
+          </div>
+          <div class="p-6 bg-black border border-gray-700 text-center">
+            <i class="fas fa-mobile-alt text-blue-400 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Responsive Design</h3>
+            <p class="text-gray-400">
+              Access your tasks anywhere, on any device.
+            </p>
+          </div>
+          <div class="p-6 bg-black border border-gray-700 text-center">
+            <i class="fas fa-cloud-upload-alt text-blue-400 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">File Uploads</h3>
+            <p class="text-gray-400">
+              Attach files and images directly to tasks.
+            </p>
+          </div>
+          <div class="p-6 bg-black border border-gray-700 text-center">
+            <i class="fas fa-shield-alt text-blue-400 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Secure Sessions</h3>
+            <p class="text-gray-400">
+              Enjoy secure and reliable session management.
+            </p>
+          </div>
+          <div class="p-6 bg-black border border-gray-700 text-center">
+            <i class="fas fa-chart-line text-blue-400 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Analytics</h3>
+            <p class="text-gray-400">
+              Track your progress and performance easily.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 bg-black border-b border-gray-700">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold mb-12">Pricing</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-6 bg-gray-900 border border-gray-700 pb-10">
+            <h3 class="text-xl font-semibold mb-4">Free Plan</h3>
+            <p class="text-gray-400 mb-4">Basic features for small teams.</p>
+            <p class="text-3xl font-bold mb-10">$0/month</p>
+            <a
+              href="#"
+              class="bg-blue-500 text-white py-2 px-6 border border-blue-400 hover:bg-blue-600 mb-5"
+            >
+              Get Started
+            </a>
+          </div>
+          <div class="p-6 bg-gray-900 border border-gray-700 pb-10">
+            <h3 class="text-xl font-semibold mb-4">Pro Plan</h3>
+            <p class="text-gray-400 mb-4">Advanced tools for growing teams.</p>
+            <p class="text-3xl font-bold mb-10">$29/month</p>
+            <a
+              href="#"
+              class="bg-blue-500 text-white py-2 px-6 border border-blue-400 hover:bg-blue-600 mb-5"
+            >
+              Get Started
+            </a>
+          </div>
+          <div class="p-6 bg-gray-900 border border-gray-700 pb-10">
+            <h3 class="text-xl font-semibold mb-4">Enterprise Plan</h3>
+            <p class="text-gray-400 mb-4">
+              Custom solutions for large organizations.
+            </p>
+            <p class="text-3xl font-bold mb-10">Contact Us</p>
+            <a
+              href="#"
+              class="bg-blue-500 text-white py-2 px-6 border border-blue-400 hover:bg-blue-600 mb-5"
+            >
+              Get Started
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-900 border-b border-gray-700">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold mb-6">About Us</h2>
+        <p class="text-gray-400 text-lg">
+          We are dedicated to providing teams with the tools they need to
+          succeed. With innovative features and a commitment to excellence,
+          TeamTask is your partner in productivity.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+
+    <section id="contact" class="py-16 bg-black border-b border-gray-700">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center text-white mb-10">
+          Contact Us
+        </h2>
+        <p class="text-center text-gray-400 mb-10">
+          Have questions? Reach out to us and we’ll get back to you promptly!
+        </p>
+        <div class="flex justify-center">
+          <form
+            class="w-full max-w-lg bg-gray-800 p-8 border border-gray-700 shadow-lg"
+          >
+            <div class="mb-6">
+              <input
+                type="text"
+                placeholder="Your Name"
+                class="w-full px-4 py-3 bg-gray-900 border border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div class="mb-6">
+              <input
+                type="email"
+                placeholder="Your Email"
+                class="w-full px-4 py-3 bg-gray-900 border border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div class="mb-6">
+              <textarea
+                rows="4"
+                placeholder="Your Message"
+                class="w-full px-4 py-3 bg-gray-900 border border-gray-700 text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              ></textarea>
+            </div>
+            <div class="flex justify-center">
+              <button
+                type="submit"
+                class="w-full bg-blue-500 text-white py-3 border border-blue-400 hover:bg-blue-600 transition duration-300 font-semibold"
+              >
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="py-6 bg-gray-900 text-center text-gray-400 border-t border-gray-700"
+    >
+      <p>&copy; 2024 TeamTask. All Rights Reserved.</p>
+    </footer>
+  </body>
 </html>

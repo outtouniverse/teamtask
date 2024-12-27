@@ -1,54 +1,128 @@
-<!-- Your HTML file -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Team View</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team View</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+      .active {
+        opacity: .7;
+        border: 1px solid white;
+        background: #00000055;
+      }
+      .container {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+      }
+      .left-panel {
+        width: 250px;
+        padding: 20px;
+        color: #fff;
+        border-right: 2px solid #444;
+        transition: width 0.3s ease;
+      }
+      .center-panel {
+        flex: 1;
+        padding: 20px;
+      }
+      .navigation-option {
+        padding: 12px;
+        width: 110%;
+        margin-bottom: 10px;
+        border: 1px solid #55555533;
+        transition: background-color 0.3s ease;
+      }
+      @media (max-width: 768px) {
+        .left-panel {
+          width: 200px;
+        }
+        .center-panel {
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-gray-300">
+    <div class="container">
+      <!-- Left Sidebar -->
+      <div class="left-panel bg-black/50 p-5">
+        <h1 class="text-4xl font-extrabold mb-8">Welcome!</h1>
+        <div class="space-y-6">
+          <div
+            class="navigation-option flex items-center space-x-4 text-gray-400"
+          >
+            <i class="fas fa-home text-lg"></i>
+            <a href="/" class="text-lg">Home</a>
+          </div>
+          <div
+            class="navigation-option flex items-center space-x-4 text-gray-400"
+          >
+            <i class="fa-solid fa-house-user text-lg"></i>
+            <a href="/users/dashboard" class="text-lg">Dashboard</a>
+          </div>
+          <div
+            class="navigation-option flex items-center active space-x-4 text-gray-400"
+          >
+            <i class="fa-solid fa-people-group text-lg"></i>
+            <a href="/users/teamview" class="text-lg">Teamview</a>
+          </div>
+          <div
+            class="navigation-option flex items-center space-x-4 text-gray-400"
+          >
+            <i class="fa-solid fa-list-check text-lg"></i>
+            <a href="/users/teamtask" class="text-lg">Team tasks</a>
+          </div>
+          <div
+            class="navigation-option flex items-center space-x-4 text-gray-400"
+          >
+            <i class="fa-solid fa-list text-lg"></i>
+            <a href="#" class="text-lg">Tasks to be done</a>
+          </div>
+          <div
+            class="navigation-option flex items-center space-x-4 text-gray-400"
+          >
+            <i class="fa-solid fa-right-from-bracket text-lg"></i>
+            <a href="/users/logout" class="text-lg">Logout</a>
+          </div>
+        </div>
+      </div>
 
-  <link rel="stylesheet" href="/stylesheets/teamview.css">
-</head>
-<body>
-
-<div class="container">
-    <div class="left-container">
-        <h3>WELCOME</h3>
-      <div class="navigation-option">
-        <i class="fas fa-home"></i><a href="/">HOME</a>
+      <!-- Center Content Area -->
+      <div class="center-panel">
+        <h1 class="text-3xl font-semibold text-white mb-10">Your Team</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <% if (users && users.length > 0) { %> <% users.forEach(user => { %>
+          <div class="bg-black/50 p-6 rounded-lg border border-gray-700">
+            <div class="flex items-center space-x-4">
+              <div
+                class="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center"
+              >
+                <i class="fa-solid fa-user text-2xl text-white"></i>
+              </div>
+              <div>
+                <h2 class="text-xl font-semibold text-white">
+                  <%= user.username %>
+                </h2>
+                <% if (user.role) { %>
+                <p class="text-sm text-gray-400"><%= user.role %></p>
+                <% } %>
+              </div>
+            </div>
+          </div>
+          <% }); %> <% } else { %>
+          <div class="col-span-full text-center text-gray-400">
+            <p>No team members available.</p>
+          </div>
+          <% } %>
+        </div>
       </div>
-      <div class="navigation-option">
-        <i class="fa-solid fa-house-user"></i><a href="/users/dashboard">Dashboard</a>
     </div>
-  
-      <div class="navigation-option">
-        <i class="fa-solid fa-people-group"></i><a href="/users/teamview">Teamview</a>
-      </div>
-  
-      <div class="navigation-option">
-        <i class="fa-solid fa-list-check"></i><a href="/users/teamtask">Team tasks</a>
-      </div>
-  
-      <div class="navigation-option">
-        <i class="fa-solid fa-list"></i><a href="#">Tasks to be done</a>
-      </div>
-  
-      <div class="navigation-option">
-        <i class="fa-solid fa-right-from-bracket"></i><a href="/users/logout">Logout</a>
-      </div>
-    </div>
-    <div class="main-content">
-        <h1>Your Team</h1>
-        <h3>NAMES OF YOUR TEAM MEMBER</h3>
-      
-      <ul>
-        <% users.forEach(user => { %>
-          <li>
-            <i class="fa-solid fa-user"></i> <%= user.username %></li>
-       <% }) %>
-      </ul>
-    </div>
-  </div>
-  
-</body>
+  </body>
 </html>

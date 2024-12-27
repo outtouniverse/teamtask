@@ -1,202 +1,199 @@
 /* styles.css */
 
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow: hidden; 
-    background-image: linear-gradient(45deg, #3f137b, rgba(19, 85, 139, 0.441));
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    min-height: 100vh;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-image: linear-gradient(45deg, #3f137b, rgba(19, 85, 139, 0.441));
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
 .container {
-    display: flex;
-    width: calc(100vw - 40px); /* Adjusted to leave 20px margin on each side */
-    margin: 50px 50px; /* Adjusted to leave 20px margin on top and bottom */
-    overflow: hidden;
+  display: flex;
+  width: calc(100vw - 40px); /* Adjusted to leave 20px margin on each side */
+  margin: 50px 20px; /* Adjusted to leave 20px margin on top and bottom */
+  overflow: hidden;
 }
 
 .left-container {
-    background: rgba(255, 255, 255, 0.61);
-    padding: 25px;
-    text-align: center;
-    height: 500px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.61);
+  padding: 25px;
+  text-align: center;
+  height: 500px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .left-container h1 {
-    color: #333; /* Default color */
+  color: #333; /* Default color */
 }
 
 .left-container h1 span {
-    color: darkgray; /* Set the color to dark gray */
+  color: darkgray; /* Set the color to dark gray */
 }
 
 h1 {
-    color: #333333a7;
-    margin: 0;
+  color: #333333a7;
+  margin: 0;
 }
 
 .user-info {
-    font-size: 1.2em;
-    margin-top: 10px;
-    color: #5555556a;
+  font-size: 1.2em;
+  margin-top: 10px;
+  color: #5555556a;
 }
 
 .right-container {
-    flex-grow: 1;
-    padding: 10px;
-    color:rgba(0, 0, 0, 0.1);
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-left: 5px; 
-    margin-right:30px;
+  flex-grow: 1;
+  padding: 10px;
+  color: rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-left: 5px;
+  margin-right: 30px;
 }
-.right-container h1{
-    color:rgba(255, 255, 255, 0.893);
+.right-container h1 {
+  color: rgba(255, 255, 255, 0.893);
 }
 .task-container {
-    background: rgba(255, 255, 255, 0.8);
-    margin-bottom: 15px;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 10px; /* Added margin for breathing space */
 }
 
 .task-info {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .task-info .task-image {
-    margin-right: 10px; /* Adjusted margin-right */
+  margin-right: 10px; /* Adjusted margin-right */
 }
 
 .task-info i {
-    color: black;
-    margin-right: 10px; /* Adjusted margin-right */
+  color: black;
+  margin-right: 10px; /* Adjusted margin-right */
 }
 
 .task-info h2 {
-    color: black;
-    margin: 0; /* Removed margin-bottom and adjusted margin */
+  color: black;
+  margin: 0; /* Removed margin-bottom and adjusted margin */
 }
 
 .task-container p {
-    color: #333;
-    margin-top: 10px;
-    margin-bottom: 0; /* Removed margin-bottom */
+  color: #333;
+  margin-top: 10px;
+  margin-bottom: 0; /* Removed margin-bottom */
 }
-
 
 .navigation-option {
-    background: rgba(255, 255, 255, 0.8);
-    margin-bottom: 20px;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex; /* Add flex display for better alignment */
-    align-items: center; /* Vertically center the content */
+  background: rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex; /* Add flex display for better alignment */
+  align-items: center; /* Vertically center the content */
 }
 
 .navigation-option i {
-    margin-right: 10px; /* Adjust the margin as needed */
-    font-size: 24px; /* Adjust the font size as needed */
+  margin-right: 10px; /* Adjust the margin as needed */
+  font-size: 24px; /* Adjust the font size as needed */
 }
 
 .navigation-option a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
 }
 
 .navigation-option a:hover {
-    color: #555;
+  color: #555;
 }
-
 
 .navigation-option i {
-    margin-right: 10px;
-    color: black;
-
+  margin-right: 10px;
+  color: black;
 }
 
 .navigation-option a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
 }
 
 .navigation-option a:hover {
-    color: #555;
+  color: #555;
 }
 .upload-form {
-    display: none;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #f0f0f0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .add-task-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background-color: #3498db; /* You can change the color */
-    color: #fff;
-    border-radius: 50%;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #3498db; /* You can change the color */
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .upload-box {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .form-group {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 #uploadButton {
-    background-color: #3498db;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 /* Add this to your CSS stylesheet or within a <style> tag in your HTML */
 .task-container-scrollable {
-    max-height: 470px; /* Set the maximum height based on your design */
-    overflow-y: auto;
-  }
+  max-height: 470px; /* Set the maximum height based on your design */
+  overflow-y: auto;
+}
 /* Add this to your CSS stylesheet or within a <style> tag in your HTML */
 .task-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .task-info {
-    display: flex;
-    align-items: center;
-  }
-  
-  .task-image img {
-    border-radius: 50%;
-    margin-right: 10px; /* Adjust the margin as needed */
-    width: 50px; /* Adjust the width as needed */
-    height: 50px; /* Adjust the height as needed */
-  }
-  
-  .round-image {
-    border-radius: 50%;
-  }
-  
+  display: flex;
+  align-items: center;
+}
+
+.task-info {
+  display: flex;
+  align-items: center;
+}
+
+.task-image img {
+  border-radius: 50%;
+  margin-right: 10px; /* Adjust the margin as needed */
+  width: 50px; /* Adjust the width as needed */
+  height: 50px; /* Adjust the height as needed */
+}
+
+.round-image {
+  border-radius: 50%;
+}
